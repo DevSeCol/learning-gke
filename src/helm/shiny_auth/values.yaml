@@ -2,4 +2,4 @@ version: 1
 shinyAppPort: 80
 shinyUserName: shiny
 shinyPassWord: shiny12345
-image: asia.gcr.io/anz-insto-training/xiaoxi-gke-test@sha256:ad12fc3da394f3d078351fa1d964d0adea04206bf4f7cee13ac8718e71892fab
+image: asia.gcr.io/devsecol/xiaoxi-gke-test@sha256:f5cd0be13b321afc5ba31a60f8ed4d3a3ba039f163f6be99f62c940da65470fc

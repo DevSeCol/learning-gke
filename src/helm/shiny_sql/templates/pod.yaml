@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shiny-db-pod-{{ .Values.version }}
+  labels:
+    app: shiny-db-{{ .Values.version }}
+spec:
+  containers:
+  - name: shiny-db-container-{{ .Values.version }}
+    image: 'postgres'
+    env: 
+    - name: POSTGRES_USER
+      value: {{ .Values.POSTGRES_USER }}
+    - name: POSTGRES_PASSWORD
+      value: {{ .Values.POSTGRES_PASSWORD }}
+    ports:
+    - containerPort: 5432

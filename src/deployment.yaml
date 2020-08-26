@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiny-deploywithsql
+  labels:
+    app: web-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shiny-port80-withsql
+  template:
+    metadata:
+      labels:
+        app: shiny-port80-withsql
+    spec:
+      containers:
+      - name: shiny-container-withsql
+        image: asia.gcr.io/anz-insto-training/xiaoxi-gke-test@sha256:71dc6b94348ef720f7bcdfdc3713cc21da23bd3d5f813b148c098cf265ea601b
+        ports:
+        - containerPort: 80
+

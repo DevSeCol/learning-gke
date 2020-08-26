@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shiny-pod-test
+  labels:
+    app: shiny-pod-test
+spec:
+  containers:
+  - name: shiny-container-test
+    image: asia.gcr.io/anz-insto-training/xiaoxi-gke-test@sha256:101f2c943bbe5f65b31ee3f2f3b5a45a7f0764361e4af4ba6c57c917edebfd9b
+    env:
+    - name: user_name
+      value: shiny_deoploy
+    - name: pw
+      value: sfgdfg
+    ports:
+      - containerPort: 80
+

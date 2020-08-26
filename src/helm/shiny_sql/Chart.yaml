@@ -1,0 +1,4 @@
+apiVersion: v2
+name: shiny_sql
+description: helm chart for shiny read and write to sql pod 
+version: 0.1.0

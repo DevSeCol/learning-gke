@@ -1,0 +1,30 @@
+version: '3.7'
+
+networks:
+  shiny-net:
+
+services:
+  shiny-db-svc:
+    image: 'postgres'
+    networks:
+      - shiny-net
+    ports:
+      - 5431:5432
+    environment:
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_USER: shiny
+
+  shiny-app:
+    build:
+      context: ./assets/shiny_app
+      dockerfile: Dockerfile
+    networks:
+      - shiny-net
+    ports: 
+      - '8080:80'
+    environment: 
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_USER: shiny
+    depends_on:
+      - shiny-db-svc
+    

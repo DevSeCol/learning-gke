@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: shiny-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: shiny-nodeport
+          servicePort: 60
+      - path: /port81
+        backend:
+          serviceName: shiny-nodeport81
+          servicePort: 61

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiny-auth-deploy-{{ .Values.version }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shiny-auth-{{ .Values.version }}
+  template:
+    metadata:
+      labels:
+        app: shiny-auth-{{ .Values.version }}
+    spec:
+      containers:
+      - name: shiny-auth-container-{{ .Values.version }}
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: {{ .Values.shinyAppPort }}
+        env: 
+        - name: SHINYUSERNAME
+          value: {{ .Values.shinyUserName }}
+        - name: SHINYPASSWORD
+          value: {{ .Values.shinyPassWord }}

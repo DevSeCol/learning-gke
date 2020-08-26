@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiny-sql-deploy-{{ .Values.version }}
+  labels:
+    app: web-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shiny-sql-{{ .Values.version }}
+  template:
+    metadata:
+      labels:
+        app: shiny-sql-{{ .Values.version }}
+    spec:
+      containers:
+      - name: shiny-sql-container-{{ .Values.version }}
+        image: {{ .Values.image }}
+        env: 
+        - name: version
+          value: {{ .Values.version | quote }}
+        - name: POSTGRES_USER
+          value: {{ .Values.POSTGRES_USER }}
+        - name: POSTGRES_PASSWORD
+          value: {{ .Values.POSTGRES_PASSWORD }}
+        ports:
+        - containerPort: {{ .Values.shinyAppPort }}
+

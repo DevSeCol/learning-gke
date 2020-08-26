@@ -1,0 +1,5 @@
+version: 1
+shinyAppPort: 80
+POSTGRES_USER: shiny
+POSTGRES_PASSWORD: shiny
+image: asia.gcr.io/anz-insto-training/xiaoxi-gke-test@sha256:17718733eda5c35065d4359c501990e89eefc08b5dd2127beff0247f73df8ea9

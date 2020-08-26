@@ -1,0 +1,4 @@
+apiVersion: v2
+name: shiny_auth
+description: helm chart for shiny app with auth 
+version: 0.1.0

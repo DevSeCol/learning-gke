@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiny-deploy81
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shiny81
+  template:
+    metadata:
+      labels:
+        app: shiny81
+    spec:
+      containers:
+      - name: shiny-container81
+        image: asia.gcr.io/anz-insto-training/xiaoxi-gke-test@sha256:9a0a949bca3c31094bf78824f3d7f4d0f5ee08762eefee05064c2e94ab779885
+        ports:
+        - containerPort: 81
+

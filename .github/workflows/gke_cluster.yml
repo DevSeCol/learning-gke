@@ -9,7 +9,7 @@ name: 'Terraform gke-cluster'
 on:
   push:
     branches:
-    - master_debug
+    - master
   pull_request:
 
 jobs:

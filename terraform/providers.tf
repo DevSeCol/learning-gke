@@ -1,10 +1,10 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "devops-training"
+    organization = "gke-learning-xiaoxi"
 
     workspaces {
-      name = "test-xiaoxi"
+      name = "learning-gke"
     }
   }
 }

@@ -27,8 +27,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Copy
-      run: cp gcp/* .
+    # - name: Copy
+    #   run: cp gcp/* .
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token 
     - name: Setup Terraform

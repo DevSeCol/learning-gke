@@ -4,7 +4,7 @@ terraform {
     organization = "gke-learning-xiaoxi"
 
     workspaces {
-      name = "learning-gke"
+      name = "learning-gke-xiaoxi"
     }
   }
 }

@@ -14,7 +14,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Terraform job'
+    name: 'Terraform'
     runs-on: ubuntu-latest
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -28,9 +28,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # - name: Copy
-    #   run: cp gcp/* .
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -38,7 +35,7 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Initialisation
+    - name: Terraform Init
       run: terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
@@ -54,3 +51,11 @@ jobs:
       run: terraform plan
       env:
         GOOGLE_APPLICATION_CREDENTIALS: "./TF_SERVICE_ACCOUNT.json"
+    
+    #   # On push to master, build or change infrastructure according to Terraform configuration files
+    #   # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
+    # - name: Terraform Apply
+    #   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    #   run: terraform apply -auto-approve
+    #   env:
+    #     GOOGLE_APPLICATION_CREDENTIALS: "./TF_SERVICE_ACCOUNT.json"

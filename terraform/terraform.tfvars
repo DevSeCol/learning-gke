@@ -1,2 +1,2 @@
-project_id  = "gcp-xiaoxi"
-region      = "us-central1"
+project_id = "gcp-xiaoxi"
+region     = "us-central1"
